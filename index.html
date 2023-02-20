@@ -24,7 +24,7 @@
 
                 <div id="carousel" class="carousel mx-auto">
 
-                    <div v-for="slide in images" :class="slideClass">
+                    <div v-for="slide in images" :class="slide.class">
                         <div :class="slideOverlayClass">
                             <h3>{{slide.title}}</h3>
                             <p>{{slide.text}}</p>
@@ -32,11 +32,11 @@
                         <img v-bind:src="slide.imageUrl" alt="">
                     </div>
 
-                    <div @click="precSlide" id="arrow-left" class="carousel-arrow arrow-left">
+                    <div @click="precSlide(index)" id="arrow-left" class="carousel-arrow arrow-left">
                         <i class="fa-solid fa-chevron-left"></i>
                     </div>
     
-                    <div @click="nextSlide" id="arrow-right" class="carousel-arrow arrow-right">
+                    <div @click="nextSlide(index)" id="arrow-right" class="carousel-arrow arrow-right">
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
     
