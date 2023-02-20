@@ -24,53 +24,13 @@
 
                 <div id="carousel" class="carousel mx-auto">
 
-                    <div v-for="index in images" :class="[slideClass, activeClass]">
+                    <div v-for="slide in images" :class="[slideClass, activeClass]">
                         <div :class="slideOverlayClass">
-                            <h3>{{getImagesTitle(index)}}</h3>
-                            <p>{{getImagesText(index)}}</p>
+                            <h3>{{slide.title}}</h3>
+                            <p>{{slide.text}}</p>
                         </div>
-                        <img v-bind:src="{{getImagesImageUrl(index)}}" alt="">
+                        <img v-bind:src="slide.imageUrl" alt="">
                     </div>
-
-                    <!-- <div :class="[slideClass, activeClass]">
-                        <div :class="slideOverlayClass">
-                            <h3>{{images[0].title}}</h3>
-                            <p>{{images[0].text}}</p>
-                        </div>
-                        <img v-bind:src="images[0].imageUrl" alt="">
-                    </div>
-
-                    <div :class='slideClass'>
-                        <div :class="slideOverlayClass">
-                            <h3>{{images[1].title}}</h3>
-                            <p>{{images[1].text}}</p>
-                        </div>
-                        <img v-bind:src="images[1].imageUrl" alt="">
-                    </div>
-
-                    <div :class='slideClass'>
-                        <div :class="slideOverlayClass">
-                            <h3>{{images[2].title}}</h3>
-                            <p>{{images[2].text}}</p>
-                        </div>
-                        <img v-bind:src="images[2].imageUrl" alt="">
-                    </div>
-
-                    <div :class='slideClass'>
-                        <div :class="slideOverlayClass">
-                            <h3>{{images[3].title}}</h3>
-                            <p>{{images[3].text}}</p>
-                        </div>
-                        <img v-bind:src="images[3].imageUrl" alt="">
-                    </div>
-
-                    <div :class='slideClass'>
-                        <div :class="slideOverlayClass">
-                            <h3>{{images[4].title}}</h3>
-                            <p>{{images[4].text}}</p>
-                        </div>
-                        <img v-bind:src="images[4].imageUrl" alt="">
-                    </div> -->
 
                     <div @click="precSlide" id="arrow-left" class="carousel-arrow arrow-left">
                         <i class="fa-solid fa-chevron-left"></i>
