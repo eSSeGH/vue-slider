@@ -42,25 +42,42 @@ createApp({
     methods: {
         nextSlide (index) {
             index = slideIndex
+    
 
-            this.images[index].class = "slide"
-            console.log(this.images[index].class)
+            if (slideIndex < this.images.length - 1) {
+                this.images[index].class = "slide"             
 
-            slideIndex += 1
+                slideIndex += 1
 
-            this.images[index +1 ].class = ["slide", "active"]
-            console.log(this.images[index + 1].class)
+                this.images[index +1 ].class = ["slide", "active"]              
+            } else {
+
+                this.images[index].class = "slide"             
+
+                slideIndex = 0
+
+                this.images[0].class = ["slide", "active"] 
+            }
         },
         precSlide(index) {
             index = slideIndex
 
-            this.images[index].class = "slide"
-            console.log(this.images[index].class)
+            if (slideIndex > 0) {
+                this.images[index].class = "slide"               
 
-            slideIndex -= 1
+                index -= 1
+                slideIndex -= 1
 
-            this.images[index - 1].class = ["slide", "active"]
-            console.log(this.images[index - 1].class)
+                this.images[index].class = ["slide", "active"]
+            } else {
+
+                this.images[index].class = "slide"             
+
+                index = this.images.length - 1
+                slideIndex = this.images.length - 1
+
+                this.images[index].class = ["slide", "active"] 
+            }
         }
     }
 }).mount('#app')
