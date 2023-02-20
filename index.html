@@ -24,7 +24,7 @@
 
                 <div id="carousel" class="carousel mx-auto">
 
-                    <div v-for="slide in images" :class="[slideClass, activeClass]">
+                    <div v-for="slide in images" :class="slideClass">
                         <div :class="slideOverlayClass">
                             <h3>{{slide.title}}</h3>
                             <p>{{slide.text}}</p>
