@@ -39,6 +39,15 @@ createApp({
         }
     },
     methods: {
+        getImagesTitle(index) {
+            return this.images[index].title
+        },
+        getImagesText(index) {
+            return this.images[index].text
+        },
+        getImagesImageUrl(index) {
+            return this.images[index].imageUrl
+        },
         nextSlide () {
             console.log("next slide")
 

@@ -26,10 +26,10 @@
 
                     <div v-for="index in images" :class="[slideClass, activeClass]">
                         <div :class="slideOverlayClass">
-                            <h3>{{images[{{index}}].title}}</h3>
-                            <p>{{images[{{index}}].text}}</p>
+                            <h3>{{getImagesTitle(index)}}</h3>
+                            <p>{{getImagesText(index)}}</p>
                         </div>
-                        <img v-bind:src="{{images[{{index}}].imageUrl}}" alt="">
+                        <img v-bind:src="{{getImagesImageUrl(index)}}" alt="">
                     </div>
 
                     <!-- <div :class="[slideClass, activeClass]">
