@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Slider</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        
+        <header :class = 'headerClass'>
+            <h1 :class= 'h1Class'>{{message}}</h1>
+        </header>
+
+        <main>
+
+            <div class="container">
+
+                <div id="carousel" class="carousel mx-auto">
+
+                    <div v-for="index in images" :class="[slideClass, activeClass]">
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[{{index}}].title}}</h3>
+                            <p>{{images[{{index}}].text}}</p>
+                        </div>
+                        <img v-bind:src="{{images[{{index}}].imageUrl}}" alt="">
+                    </div>
+
+                    <!-- <div :class="[slideClass, activeClass]">
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[0].title}}</h3>
+                            <p>{{images[0].text}}</p>
+                        </div>
+                        <img v-bind:src="images[0].imageUrl" alt="">
+                    </div>
+
+                    <div :class='slideClass'>
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[1].title}}</h3>
+                            <p>{{images[1].text}}</p>
+                        </div>
+                        <img v-bind:src="images[1].imageUrl" alt="">
+                    </div>
+
+                    <div :class='slideClass'>
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[2].title}}</h3>
+                            <p>{{images[2].text}}</p>
+                        </div>
+                        <img v-bind:src="images[2].imageUrl" alt="">
+                    </div>
+
+                    <div :class='slideClass'>
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[3].title}}</h3>
+                            <p>{{images[3].text}}</p>
+                        </div>
+                        <img v-bind:src="images[3].imageUrl" alt="">
+                    </div>
+
+                    <div :class='slideClass'>
+                        <div :class="slideOverlayClass">
+                            <h3>{{images[4].title}}</h3>
+                            <p>{{images[4].text}}</p>
+                        </div>
+                        <img v-bind:src="images[4].imageUrl" alt="">
+                    </div> -->
+
+                    <div @click="precSlide" id="arrow-left" class="carousel-arrow arrow-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+    
+                    <div @click="nextSlide" id="arrow-right" class="carousel-arrow arrow-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+    
+
+                </div>
+    
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f845cc90f8.js" crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
