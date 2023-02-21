@@ -1,7 +1,5 @@
 const { createApp } = Vue
 
-let slideIndex = 0
-
 createApp({
     data() {
         return {
@@ -9,6 +7,7 @@ createApp({
             headerClass: 'header',
             h1Class: 'title-header',
             slideOverlayClass: 'slide-overlay',
+            currentIndex: 0,
             images: [
                 {
                     class: ['slide', 'active'],
@@ -40,43 +39,23 @@ createApp({
         }
     },
     methods: {
-        nextSlide (index) {
-            index = slideIndex
-    
+        nextSlide () {   
 
-            if (slideIndex < this.images.length - 1) {
-                this.images[index].class = "slide"             
+            if (this.currentIndex < this.images.length - 1) {
+                this.currentIndex += 1
 
-                slideIndex += 1
-
-                this.images[index +1 ].class = ["slide", "active"]              
             } else {
-
-                this.images[index].class = "slide"             
-
-                slideIndex = 0
-
-                this.images[0].class = ["slide", "active"] 
+                this.currentIndex = 0
             }
         },
-        precSlide(index) {
-            index = slideIndex
+        precSlide() {
+            console.log()
 
-            if (slideIndex > 0) {
-                this.images[index].class = "slide"               
+            if (this.currentIndex > 0) {
+                this.currentIndex -= 1
 
-                index -= 1
-                slideIndex -= 1
-
-                this.images[index].class = ["slide", "active"]
             } else {
-
-                this.images[index].class = "slide"             
-
-                index = this.images.length - 1
-                slideIndex = this.images.length - 1
-
-                this.images[index].class = ["slide", "active"] 
+                this.currentIndex = this.images.length - 1
             }
         }
     }
